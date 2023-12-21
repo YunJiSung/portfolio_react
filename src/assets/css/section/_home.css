@@ -391,7 +391,8 @@
     opacity: 0.8;
 }
 
-.draggableIcon {
+
+/* .draggableIcon {
     width: 75px;
     height: 75px;
     position: absolute;
@@ -402,9 +403,9 @@
     justify-content: center;
     flex-direction: column;
     cursor: pointer;
-}
+} */
 
-.draggableIcon img {
+/* .draggableIcon img {
     width: 40px;
 }
 
@@ -414,7 +415,7 @@
     color: #fff;
     margin-top: 10px;
     font-family: "nanumSquareNeo";
-}
+} */
 
 .wallpapers .youtubeIcon {
     width: 75px;
@@ -475,6 +476,7 @@
     left: 50%;
     top: calc(50% - 30px);
     transform: translate(-50%, -50%);
+    background-color: #0f1735a8;
 }
 
 .portLayer__contents {

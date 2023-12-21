@@ -157,16 +157,18 @@ const Home = () => {
     return (
         <div id="mainIntro">
             <div className="wallpapers">
-                <DraggableIcon 
-                  icon={youtubeIcon}
-                  label="나만의 유튜브" 
-                  onClick={() => toggleLayer('youtubeLayer')} 
-                />
-                <DraggableIcon 
-                  icon={netflixIcon} 
-                  label="영화 리스트" 
-                  onClick={() => toggleLayer('movieLayer')} 
-                />
+                    <DraggableIcon 
+                        icon={youtubeIcon}
+                        label="나만의 유튜브" 
+                        className="youtubeIcon"
+                        onClick={() => toggleLayer('youtubeLayer')} 
+                    />
+                    <DraggableIcon 
+                        icon={netflixIcon} 
+                        label="영화 리스트" 
+                        className="movieIcon"
+                        onClick={() => toggleLayer('movieLayer')} 
+                    />
             </div>
 
             <div className="footer__info">

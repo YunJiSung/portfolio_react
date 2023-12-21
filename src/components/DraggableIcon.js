@@ -19,18 +19,34 @@
 import React from 'react';
 import Draggable from 'react-draggable';
 
-const DraggableIcon = ({ icon, label }) => {
+const DraggableIcon = ({ icon, label, className, onClick }) => {
     return (
         <Draggable>
-            <div className="draggableIcon">
+            <div className={`icon ${className}`} onClick={onClick}>
                 <img src={icon} alt={label} />
                 <span>{label}</span>
             </div>
         </Draggable>
     );
 };
-
 export default DraggableIcon;
+
+// const DraggableIcon = ({ icon, label }) => {
+//     return (
+//         <Draggable>
+//             <div className="draggableIcon">
+//                 <img src={icon} alt={label} />
+//                 <span>{label}</span>
+//             </div>
+
+
+//         </Draggable>
+
+
+//     );
+// };
+
+// export default DraggableIcon;
 
 
 // // DraggableIcon.js
