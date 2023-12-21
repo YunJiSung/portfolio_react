@@ -137,6 +137,9 @@ import React, { useState } from 'react';
 import DraggableIcon from '../components/DraggableIcon';
 import Layer from '../components/Layer';
 import '../assets/css/section/_home.css'; // Home 컴포넌트에 특정한 스타일
+import youtubeIcon from '../assets/img/youtube.png'; 
+import netflixIcon from '../assets/img/netflix.png'; 
+
 import oneIcon from '../assets/img/one.png'; 
 import logoIcon from '../assets/img/Logo@3x.png'; 
 import spotifyIcon from '../assets/img/spotify.png';
@@ -155,12 +158,12 @@ const Home = () => {
         <div id="mainIntro">
             <div className="wallpapers">
                 <DraggableIcon 
-                  icon="/assets/img/youtube.png" 
+                  icon={youtubeIcon}
                   label="나만의 유튜브" 
                   onClick={() => toggleLayer('youtubeLayer')} 
                 />
                 <DraggableIcon 
-                  icon="/assets/img/netflix.png" 
+                  icon={netflixIcon} 
                   label="영화 리스트" 
                   onClick={() => toggleLayer('movieLayer')} 
                 />
