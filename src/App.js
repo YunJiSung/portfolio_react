@@ -85,7 +85,6 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* 필요한 경우 추가 경로를 여기에 추가 */}
       </Routes>
     </Router>
   );

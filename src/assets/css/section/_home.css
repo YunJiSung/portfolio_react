@@ -415,6 +415,31 @@
     opacity: 0.8;
 }
 
+.draggableIcon {
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.draggableIcon img {
+    width: 40px;
+}
+
+.draggableIcon span {
+    display: block;
+    font-size: 12px;
+    color: #fff;
+    margin-top: 10px;
+    font-family: "nanumSquareNeo";
+}
+
 .wallpapers .youtubeIcon {
     width: 75px;
     height: 75px;
