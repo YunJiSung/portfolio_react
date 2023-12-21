@@ -348,30 +348,6 @@
     width: 100%;
 }
 
-.item-img img-column-04 {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.item-img {
-    grid-gap: 8px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding-top: 32px;
-    padding-top: 28px;
-}
-
-.item-img .img-box {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    height: 100%;
-    overflow: hidden;
-    transform: translateZ(0);
-    width: 100%;
-    z-index: 5;
-}
-
 
 /* layout - about */
 .about h3 {
