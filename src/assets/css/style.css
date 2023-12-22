@@ -7,3 +7,5 @@
 
 /* section */
 @import "section/_home.css";
+@import "section/_Banner.css";
+@import "section/_MovieLists.css";

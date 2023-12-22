@@ -25,7 +25,7 @@ const Wallpaper = () => {
             </DraggableIcon>
             {/* <DraggableIcon  icon={youtubeIcon} altText="YouTube" />
             <DraggableIcon icon={netflixIcon} altText="Netflix" /> */}
-           
+
         </div>
     );
 };

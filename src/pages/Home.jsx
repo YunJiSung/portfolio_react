@@ -144,6 +144,8 @@ import oneIcon from '../assets/img/one.png';
 import logoIcon from '../assets/img/Logo@3x.png'; 
 import spotifyIcon from '../assets/img/spotify.png';
 import newsfeedIcon from '../assets/img/newsfeed.png';
+import Banner from '../components/Banner';
+import MovieLists from '../components/MovieLists';
 
 const Home = () => {
     // 각 레이어의 상태를 관리하는 상태 변수들
@@ -191,8 +193,13 @@ const Home = () => {
             </div>
 
             <Layer isActive={activeLayer === 'youtubeLayer'} content="YouTube Layer Content" />
-            <Layer isActive={activeLayer === 'movieLayer'} content="Movie Layer Content" />
-            <Layer isActive={activeLayer === 'about'} content="About Layer Content" />
+            <Layer isActive={activeLayer === 'movieLayer'} content={
+             <>
+             <Banner content="Movie Section Information" />
+             <MovieLists title="Movie Title" id="movieId" fetchUrl="API_ENDPOINT" />
+           </> 
+            } />
+            <Layer isActive={activeLayer === 'about'} content={<Banner content="About Section Information" />} />
             <Layer isActive={activeLayer === 'projects'} content="Projects Layer Content" />
             <Layer isActive={activeLayer === 'skills'} content="Skills Layer Content" />
             <Layer isActive={activeLayer === 'contact'} content="Contact Layer Content" />
