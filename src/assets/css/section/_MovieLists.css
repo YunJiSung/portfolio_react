@@ -193,7 +193,7 @@
 .swiper-slide img {
     object-fit: contain;
     width: 100%;
-    height: auto;
+    height: 100%;
     margin-right: 10px;
     transition: transform 450ms;
     border-radius: 4px;
