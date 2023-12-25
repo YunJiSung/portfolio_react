@@ -213,6 +213,105 @@
 // export default MovieLists;
 
 
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import axios from '../api/axios';
+// import requests from '../api/request';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, Pagination } from 'swiper'; // 이렇게 수정
+
+// // Swiper styles
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
+
+// // Your CSS
+// import "../assets/css/section/_MovieLists.css";
+
+// const MovieLists = () => {
+//     const [nowPlaying, setNowPlaying] = useState([]);
+//     const [trending, setTrending] = useState([]);
+//     const [topRated, setTopRated] = useState([]);
+//     const [actionMovies, setActionMovies] = useState([]);
+//     const [comedyMovies, setComedyMovies] = useState([]);
+//     const [horrorMovies, setHorrorMovies] = useState([]);
+//     const [romanceMovies, setRomanceMovies] = useState([]);
+//     const [documentaries, setDocumentaries] = useState([]);
+
+//     const fetchMoviesByCategory = async (categoryKey, setState) => {
+//         try {
+//             const response = await axios.get(requests[categoryKey]);
+//             setState(response.data.results);
+//         } catch (error) {
+//             console.error('Error fetching movies:', error);
+//         }
+//     };
+
+//     useEffect(() => {
+//         fetchMoviesByCategory('fetchNowPlaying', setNowPlaying);
+//         fetchMoviesByCategory('fetchTrending', setTrending);
+//         fetchMoviesByCategory('fetchTopRated', setTopRated);
+//         fetchMoviesByCategory('fetchActionMovies', setActionMovies);
+//         fetchMoviesByCategory('fetchComedyMovies', setComedyMovies);
+//         fetchMoviesByCategory('fetchHorrorMovies', setHorrorMovies);
+//         fetchMoviesByCategory('fetchRomanceMovies', setRomanceMovies);
+//         fetchMoviesByCategory('fetchDocumentaries', setDocumentaries);
+//     }, []);
+
+//     return (
+//         <div>
+//             <CategoryList title="Now Playing" movies={nowPlaying} />
+//             <CategoryList title="Trending" movies={trending} />
+//             <CategoryList title="Top Rated" movies={topRated} />
+//             <CategoryList title="Action Movies" movies={actionMovies} />
+//             <CategoryList title="Comedy Movies" movies={comedyMovies} />
+//             <CategoryList title="Horror Movies" movies={horrorMovies} />
+//             <CategoryList title="Romance Movies" movies={romanceMovies} />
+//             <CategoryList title="Documentaries" movies={documentaries} />
+//         </div>
+//     );
+// };
+
+// const CategoryList = ({ title, movies }) => {
+//     // Ensure you have the modules array to register Navigation and Pagination
+//     return (
+//         <div className="category-container">
+//             <h2>{title}</h2>
+//             <Swiper
+//                 modules={[Navigation, Pagination]} // Add the modules prop
+//                 loop={true}
+//                 navigation={true} // Enable navigation
+//                 pagination={{ clickable: true }} // Enable pagination
+//                 breakpoints={{
+//                     1378: { slidesPerView: 6, slidesPerGroup: 6 },
+//                     998: { slidesPerView: 5, slidesPerGroup: 5 },
+//                     625: { slidesPerView: 4, slidesPerGroup: 4 },
+//                     0: { slidesPerView: 3, slidesPerGroup: 3 },
+//                 }}
+//             >
+//                 {movies.map((movie) => (
+//                     <SwiperSlide key={movie.id}>
+//                         <a href={`https://www.themoviedb.org/movie/${movie.id}`}>
+//                             <img
+//                                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+//                                 alt={movie.title || movie.name}
+//                             />
+//                         </a>
+//                     </SwiperSlide>
+//                 ))}
+//             </Swiper>
+//         </div>
+//     );
+// };
+
+// export default MovieLists;
+
+
+
+
+// 원래 부분
 import React, { useState, useEffect } from 'react';
 import axios from '../api/axios';
 import requests from '../api/request';
@@ -273,6 +372,10 @@ const MovieLists = () => {
     );
 };
 
+
+
+
+// 원래 부분
 const CategoryList = ({ title, movies }) => (
     <div>
         <h2>{title}</h2>
@@ -293,6 +396,7 @@ const CategoryList = ({ title, movies }) => (
                         <img
                             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                             alt={movie.title || movie.name}
+                            
                         />
                     </a>
                 </SwiperSlide>

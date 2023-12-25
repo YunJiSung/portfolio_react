@@ -136,7 +136,9 @@
 import React, { useState } from 'react';
 import DraggableIcon from '../components/DraggableIcon';
 import Layer from '../components/Layer';
+import "../assets/css/section/_MovieLists.css";
 import '../assets/css/section/_home.css'; // Home 컴포넌트에 특정한 스타일
+import "../assets/css/section/_Traveler.css";
 import youtubeIcon from '../assets/img/youtube.png'; 
 import netflixIcon from '../assets/img/netflix.png'; 
 
@@ -146,6 +148,9 @@ import spotifyIcon from '../assets/img/spotify.png';
 import newsfeedIcon from '../assets/img/newsfeed.png';
 import Banner from '../components/Banner';
 import MovieLists from '../components/MovieLists';
+// import YouTubeLayer from '../components/YouTubeLayer';
+import Traveler from "../components/Traveler";
+import About from '../components/About'; 
 
 const Home = () => {
     // 각 레이어의 상태를 관리하는 상태 변수들
@@ -192,14 +197,16 @@ const Home = () => {
                 </div>
             </div>
 
-            <Layer isActive={activeLayer === 'youtubeLayer'} content="YouTube Layer Content" />
+            {/* <Layer isActive={activeLayer === 'youtubeLayer'} content="YouTube Layer Content" /> */}
+            <Layer isActive={activeLayer === 'youtubeLayer'} content={<Traveler />} />
+
             <Layer isActive={activeLayer === 'movieLayer'} content={
              <>
              <Banner content="Movie Section Information" />
              <MovieLists title="Movie Title" id="movieId" fetchUrl="API_ENDPOINT" />
            </> 
             } />
-            <Layer isActive={activeLayer === 'about'} content={<Banner content="About Section Information" />} />
+            <Layer isActive={activeLayer === 'about'} content={<About />} />
             <Layer isActive={activeLayer === 'projects'} content="Projects Layer Content" />
             <Layer isActive={activeLayer === 'skills'} content="Skills Layer Content" />
             <Layer isActive={activeLayer === 'contact'} content="Contact Layer Content" />

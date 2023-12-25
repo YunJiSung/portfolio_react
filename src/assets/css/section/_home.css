@@ -133,6 +133,9 @@
     margin-bottom: 100px;
 }
 
+.about .intro1 p {
+    color: #fff;
+}
 
 
 
@@ -477,6 +480,10 @@
     top: calc(50% - 30px);
     transform: translate(-50%, -50%);
     background-color: #0f1735a8;
+
+
+    max-height: 100vh; /* 뷰포트 높이에 맞춤 */
+    overflow-y: auto; /* 세로 스크롤바 활성화 */
 }
 
 .portLayer__contents {

@@ -78,13 +78,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-
+import Channel from './components/section/Channel'; // 또는 해당 컴포넌트가 있는 정확한 경로
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/channel/:channelId" element={<Channel />} />
       </Routes>
     </Router>
   );
