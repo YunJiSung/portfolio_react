@@ -89,22 +89,23 @@ export const travelerText = [
         author: "미니멀유목민",
         channelId: "UCKnPpfGzTEIHKkUyfxpYPxA",
         channelAddress: "https://www.youtube.com/channel/UCslBuOyn9Df1M3HjBaG377g"
-    }, {
-        img: "https://yt3.googleusercontent.com/ytc/APkrFKYGgf7lfOvNFQK9AywE2_-lwFDRY4gTOhhOdAlo9Q=s176-c-k-c0x00ffffff-no-rj",
-        author: "가든의 세계여행",
-        channelId: "UC8GVX05oeuw4vTWve7QYULw",
-        channelAddress: "https://www.youtube.com/channel/UC8GVX05oeuw4vTWve7QYULw"
-    }, {
-        img: "https://yt3.googleusercontent.com/pU7qlSm-1wG1bViNvQe9PM603TtIWzHiOmZxAQvf6KqmulGwXDcve1hrAGHiwHgUf3OF8cCvyw=s176-c-k-c0x00ffffff-no-rj",
-        author: "호정이는 여행중",
-        channelId: "UCsTbc9ZmxgdzZM-8q-b6yug",
-        channelAddress: "https://www.youtube.com/channel/UCsTbc9ZmxgdzZM-8q-b6yug"
-    }, {
-        img: "https://yt3.googleusercontent.com/HXdnN3ECD88dKHKNrqtyvDKLd1qg6-rdYWJeSvfVP1jqc_F_vVRnUqQvyGfwOt1iTHnlg0ZXR7Q=s176-c-k-c0x00ffffff-no-rj",
-        author: "하나네의하루ハナネイハル",
-        channelId: "UCcJd2cA9l0m78CM0bIxI94Q",
-        channelAddress: "https://www.youtube.com/channel/UC0uwfqFKr9CpzYev9UWFSuQ"
     },
+    // {
+    //     img: "https://yt3.googleusercontent.com/ytc/APkrFKYGgf7lfOvNFQK9AywE2_-lwFDRY4gTOhhOdAlo9Q=s176-c-k-c0x00ffffff-no-rj",
+    //     author: "가든의 세계여행",
+    //     channelId: "UC8GVX05oeuw4vTWve7QYULw",
+    //     channelAddress: "https://www.youtube.com/channel/UC8GVX05oeuw4vTWve7QYULw"
+    // }, {
+    //     img: "https://yt3.googleusercontent.com/pU7qlSm-1wG1bViNvQe9PM603TtIWzHiOmZxAQvf6KqmulGwXDcve1hrAGHiwHgUf3OF8cCvyw=s176-c-k-c0x00ffffff-no-rj",
+    //     author: "호정이는 여행중",
+    //     channelId: "UCsTbc9ZmxgdzZM-8q-b6yug",
+    //     channelAddress: "https://www.youtube.com/channel/UCsTbc9ZmxgdzZM-8q-b6yug"
+    // }, {
+    //     img: "https://yt3.googleusercontent.com/HXdnN3ECD88dKHKNrqtyvDKLd1qg6-rdYWJeSvfVP1jqc_F_vVRnUqQvyGfwOt1iTHnlg0ZXR7Q=s176-c-k-c0x00ffffff-no-rj",
+    //     author: "하나네의하루ハナネイハル",
+    //     channelId: "UCcJd2cA9l0m78CM0bIxI94Q",
+    //     channelAddress: "https://www.youtube.com/channel/UC0uwfqFKr9CpzYev9UWFSuQ"
+    // },
     // {
     //     img: "https://yt3.googleusercontent.com/nMF5leo9imQbVZOkGGs8JAp0El7l_jL_RIO1gZGL-G00jNg27CVldR1yI-Dtj0e365znmt-OZg=s176-c-k-c0x00ffffff-no-rj",
     //     author: "오사카에사는사람들TV",

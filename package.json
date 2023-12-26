@@ -12,6 +12,7 @@
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.6",
     "react-helmet-async": "^2.0.4",
+    "react-icon": "^1.0.0",
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.21.0",
     "react-scripts": "5.0.1",

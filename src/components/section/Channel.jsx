@@ -6,7 +6,7 @@ import { CiBadgeDollar } from "react-icons/ci";
 import { CiMedal } from "react-icons/ci";
 import { CiRead } from "react-icons/ci";
 
-// import VideoSearch from '../components/video/VideoSearch';
+import VideoSearch from '../section/Search';
 import Main from '../section/Main';
 
 
@@ -69,9 +69,9 @@ const Channel = () => {
                                 <span><CiRead />{channelDetail.statistics.viewCount}</span>
                             </div>
                         </div>
-                        {/* <div className="channel__video video__inner">
+                        <div className="channel__video video__inner">
                             <VideoSearch videos={channelVideo} layout="channel" />
-                        </div> */}
+                        </div>
                         <div className="channel__more">
                             {nextPageToken && <button onClick={loadMoreVideos}>더 보기</button>}
                         </div>

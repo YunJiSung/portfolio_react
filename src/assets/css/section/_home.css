@@ -36,6 +36,9 @@
     background: transparent;
     border-radius: 5px;
     transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer__info .menu li:hover {
@@ -59,9 +62,11 @@
     transform: translatex(-50%);
     bottom: 80px;
     border-radius: 1px;
-    opacity: 0;
+    /* opacity: 0; */
+    opacity: 1;
     color: #fff;
     font-family: "nanumSquareNeo";
+    top: 0;
 }
 
 .layer__contents {
@@ -482,8 +487,10 @@
     background-color: #0f1735a8;
 
 
-    max-height: 100vh; /* 뷰포트 높이에 맞춤 */
-    overflow-y: auto; /* 세로 스크롤바 활성화 */
+    max-height: 100vh;
+    /* 뷰포트 높이에 맞춤 */
+    overflow-y: auto;
+    /* 세로 스크롤바 활성화 */
 }
 
 .portLayer__contents {
