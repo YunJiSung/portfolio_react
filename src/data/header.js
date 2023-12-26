@@ -20,7 +20,7 @@ export const menuText = [
     }
 ]
 
-export const keywordText = [
+export const headerMenus = [
     {
         title: "빠니보틀",
         icon: <CiAirportSign1 />,

@@ -484,7 +484,8 @@
     left: 50%;
     top: calc(50% - 30px);
     transform: translate(-50%, -50%);
-    background-color: #0f1735a8;
+    /* background-color: #0f1735a8; */
+    background-color: #fff;
 
 
     max-height: 100vh;

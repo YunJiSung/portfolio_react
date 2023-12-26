@@ -1,41 +1,29 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-}
-
-const VideoSearch = ({ videos, layout = '' }) => {
+const VideoSearch = ({ videos }) => {
     return (
         <>
-            {videos.map((video, key) => (
-                <div className='video' key={key}>
+            {videos.map((video, index) => (
+                <div className="video" key={index}>
                     <div className="video__thumb play__icon">
-                        <Link
-                            to={`/video/${video.id.videoId}`}
-                            style={{ backgroundImage: `url(${video.snippet.thumbnails.high.url})` }}
-                        >
+                        <Link 
+                            to={`/video/${video.id.videoId}`} 
+                            style={{ backgroundImage: `url(${video.snippet.thumbnails.high.url})` }}>
                         </Link>
                     </div>
                     <div className="video__info">
-                        <h3 className='title'>
+                        <div className="title">
                             <Link to={`/video/${video.id.videoId}`}>{video.snippet.title}</Link>
-                        </h3>
-                        <p className='desc'>
-                            {video.snippet.description}
-                        </p>
-                        <div className={`info ${layout}`}>
-                            <Link to={`/channel/${video.snippet.channelId}`} className='author'>{video.snippet.channelTitle}</Link>
-                            <span className='date'>{formatDate(video.snippet.publishedAt)}</span>
+                        </div>
+                        <div className="info">
+                            <span className="author">
+                                <Link to={`/channel/${video.snippet.channelId}`}>{video.snippet.channelTitle}</Link>
+                            </span>
                         </div>
                     </div>
                 </div>
-            ))
-            }
+            ))}
         </>
     )
 }

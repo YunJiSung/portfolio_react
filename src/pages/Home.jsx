@@ -149,7 +149,7 @@ import newsfeedIcon from '../assets/img/newsfeed.png';
 import Banner from '../components/Banner';
 import MovieLists from '../components/MovieLists';
 // import YouTubeLayer from '../components/YouTubeLayer';
-import Traveler from "../components/Traveler";
+import Search from "../components/Search";
 import About from '../components/About'; 
 
 const Home = () => {
@@ -198,7 +198,7 @@ const Home = () => {
             </div>
 
             {/* <Layer isActive={activeLayer === 'youtubeLayer'} content="YouTube Layer Content" /> */}
-            <Layer isActive={activeLayer === 'youtubeLayer'} content={<Traveler />} />
+            <Layer isActive={activeLayer === 'youtubeLayer'} content={<Search />} />
 
             <Layer isActive={activeLayer === 'movieLayer'} content={
              <>
