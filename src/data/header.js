@@ -1,64 +1,63 @@
-import { CiAirportSign1 } from 'react-icons/ci';
+
 import { AiFillGithub } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
 import { AiOutlineInstagram } from "react-icons/ai";
 
 
-export const menuText = [
-    {
-        title: "여행 유튜버 홈",
-        icon: <CiAirportSign1 />,
-        src: "/"
-    }, {
-        title: "오늘의 추천 픽!!",
-        icon: <CiAirportSign1 />,
-        src: "/today"
-    }, {
-        title: "유명 유튜버",
-        icon: <CiAirportSign1 />,
-        src: "/traveler"
-    }
-]
+// import { CiBaseball } from "react-icons/ci";
+// import { CiCoins1 } from "react-icons/ci";
+// import { CiBoxes } from "react-icons/ci";
+// import { CiBullhorn } from "react-icons/ci";
+// import { CiCoffeeCup } from "react-icons/ci";
+// import { CiDumbbell } from "react-icons/ci";
+// import { CiFries } from "react-icons/ci";
+// import { CiMoneyBill } from "react-icons/ci";
 
-export const headerMenus = [
+// import { AiFillGithub } from "react-icons/ai";
+// import { AiFillYoutube } from "react-icons/ai";
+// import { AiOutlineInstagram } from "react-icons/ai";
+
+
+
+export const searchKeyword = [
+
     {
-        title: "빠니보틀",
-        icon: <CiAirportSign1 />,
-        src: "/search/빠니보틀"
-    }, {
-        title: "곽튜브",
-        icon: <CiAirportSign1 />,
-        src: "/search/곽튜브"
-    }, {
-        title: "joe튜브",
-        icon: <CiAirportSign1 />,
-        src: "/search/joe튜브"
-    }, {
-        title: "국제커플 코인컴퍼니",
-        icon: <CiAirportSign1 />,
-        src: "/search/국제커플 코인컴퍼니"
-    }, {
-        title: "캐럿맨 여행기",
-        icon: <CiAirportSign1 />,
-        src: "/search/캐럿맨 여행기"
-    }, {
-        title: "희철리즘",
-        icon: <CiAirportSign1 />,
-        src: "/search/희철리즘"
-    }, {
-        title: "체코제",
-        icon: <CiAirportSign1 />,
-        src: "/search/체코제"
-    }, {
-        title: "테디여행기",
-        icon: <CiAirportSign1 />,
-        src: "/search/테디여행기"
-    }, {
-        title: "노마드션",
-        icon: <CiAirportSign1 />,
-        src: "/search/노마드션"
-    }
-]
+        title: "HTML",
+        src: "/search/html"
+    },
+    {
+        title: "CSS",
+        src: "/search/css"
+    },
+    {
+        title: "JavaScript",
+        src: "/search/javascript"
+    },
+    {
+        title: "React.js",
+        src: "/search/react.js"
+    },
+    {
+        title: "Vue.js",
+        src: "/search/vue.js"
+    },
+    {
+        title: "Next.js",
+        src: "/search/next.js"
+    },
+    {
+        title: "Node.js",
+        src: "/search/node.js"
+    },
+    {
+        title: "SQL",
+        src: "/search/sql"
+    },
+    {
+        title: "portfolio",
+        src: "/search/React Portfolio"
+    },
+];
 
 export const snsText = [
     {
