@@ -138,7 +138,7 @@ import DraggableIcon from '../components/DraggableIcon';
 import Layer from '../components/Layer';
 import "../assets/css/section/_MovieLists.css";
 import '../assets/css/section/_home.css'; // Home 컴포넌트에 특정한 스타일
-import "../assets/css/section/_Traveler.css";
+import "../assets/css/section/_Video.css";
 import youtubeIcon from '../assets/img/youtube.png'; 
 import netflixIcon from '../assets/img/netflix.png'; 
 

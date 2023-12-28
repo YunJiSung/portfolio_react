@@ -510,6 +510,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import "../assets/css/section/_header.css";
+import "../assets/css/section/_Video.css";
 import { searchKeyword } from '../data/header.js';
 import VideoSearch from './video/VideoSearch.jsx';
 import { fetchFromAPI } from '../utils/api.js';
