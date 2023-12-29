@@ -1,4 +1,4 @@
-.header__logo {
+/* .header__logo {
     border-bottom: 1px solid var(--black100);
 }
 
@@ -72,12 +72,12 @@
 .header__menu .menu li.active a {
     background-color: var(--black100);
     color: var(--white);
-}
+} */
 
 /* a */
 
-
-.search__wrap {
+/* 방금 */
+/* .search__wrap {
     display: flex;
     align-items: center;
 }
@@ -93,10 +93,13 @@
     margin: 3px 1px;
     padding: 5px 15px;
     transition: all .3s;
-}
+} */
+
+
+
 
 /* a */
-.header__menu .keyword {
+/* .header__menu .keyword {
     padding: 1.25rem;
 }
 
@@ -166,4 +169,4 @@
         transform: rotate(0) scale(1);
         border-radius: 0;
     }
-}
+} */

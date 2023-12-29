@@ -70,7 +70,7 @@
 }
 
 .layer__contents {
-    background-color: #223167a8;
+    background-color: #0f1735a8;
     backdrop-filter: blur(30px);
     height: calc(100% - 60px);
     border-radius: 10px 10px 0 0;
@@ -484,14 +484,12 @@
     left: 50%;
     top: calc(50% - 30px);
     transform: translate(-50%, -50%);
-    /* background-color: #0f1735a8; */
-    background-color: #fff;
-
-
+    background-color: #0f1735a8;
     max-height: 100vh;
     /* 뷰포트 높이에 맞춤 */
     overflow-y: auto;
     /* 세로 스크롤바 활성화 */
+    color: #fff;
 }
 
 .portLayer__contents {

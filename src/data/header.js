@@ -52,11 +52,7 @@ export const searchKeyword = [
     {
         title: "SQL",
         src: "/search/sql"
-    },
-    {
-        title: "portfolio",
-        src: "/search/React Portfolio"
-    },
+    }
 ];
 
 export const snsText = [

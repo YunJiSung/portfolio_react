@@ -197,7 +197,7 @@
 
 
 
-// 가장 최근 사용 
+// 가장 최근 사용
 // import React, { useState, useEffect } from 'react';
 // import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 // // import "../../assets/css/section/_header.css";
@@ -506,6 +506,146 @@
 
 
 
+// 코드 밑에 사용하기 전 코드 내용
+// import React, { useState, useEffect } from 'react';
+// import { useLocation, useParams } from 'react-router-dom';
+// import "../assets/css/section/_header.css";
+// import "../assets/css/section/_Video.css";
+// import { searchKeyword } from '../data/header.js';
+// import VideoSearch from './video/VideoSearch.jsx';
+// import { fetchFromAPI } from '../utils/api.js';
+
+// const Search = () => {
+//     const { searchId } = useParams();
+//     const [videos, setVideos] = useState([]);
+//     const [nextPageToken, setNextPageToken] = useState(null);
+//     const [loading, setLoading] = useState(true);
+//     const [inputKeyword, setInputKeyword] = useState('');
+//     const location = useLocation();
+
+//     useEffect(() => {
+//         if (searchId) {
+//             fetchVideos(searchId);
+//         }
+//     }, [searchId]);
+
+//     const fetchVideos = (query, pageToken = '') => {
+//         setLoading(true);
+//         setVideos([]);
+//         fetchFromAPI(`search?part=snippet&type=video&q=${query}&pageToken=${pageToken}`)
+//             .then((data) => {
+//                 setNextPageToken(data.nextPageToken);
+//                 setVideos(data.items);
+//                 setLoading(false);
+//             })
+//             .catch((error) => {
+//                 console.error('Error fetching data', error);
+//                 setLoading(false);
+//             });
+//     };
+
+//     const handleKeywordClick = (keyword) => {
+//         fetchVideos(keyword);
+//     };
+
+//     const handleSearchChange = (event) => {
+//         setInputKeyword(event.target.value);
+//     };
+
+//     const handleSubmit = (event) => {
+//         event.preventDefault();
+//         if (inputKeyword) {
+//             fetchVideos(inputKeyword);
+//         }
+//     };
+
+//     const handleLoadMore = () => {
+//         if (nextPageToken) {
+//             fetchVideos(searchId, nextPageToken);
+//         }
+//     };
+
+//     const searchPageClass = loading ? 'isLoading' : 'isLoaded';
+
+//     return (
+//         <div className='search__contents'>
+//             <div className='search__wrap'>
+//                 <div id='search'>
+//                     <div className="search__inner">
+//                         <h3>코딩 유튜버</h3>
+//                         <span className="small">최신 코딩 관련 영상을 볼 수 있습니다.</span>
+//                         <span className="mail"></span>
+//                         <div className='info'>
+//                             <div>
+//                                 <form onSubmit={handleSubmit}>
+//                                     <input
+//                                         type="search"
+//                                         id='searchInput'
+//                                         placeholder='검색어를 입력해주세요!'
+//                                         autoComplete='off'
+//                                         className='search__input'
+//                                         value={inputKeyword}
+//                                         onChange={handleSearchChange}
+//                                     />
+//                                     <button type="submit">검색</button>
+//                                 </form>
+//                             </div>
+//                             <div>
+//                                 <ul className='keyword'>
+//                                     {searchKeyword.map((keyword, index) => (
+//                                         <li key={index}
+//                                             className={location.pathname.includes(keyword.src) ? 'active' : ''}
+//                                             onClick={() => handleKeywordClick(keyword.title)}>
+//                                             {keyword.title}
+//                                         </li>
+//                                     ))}
+//                                 </ul>
+//                             </div>
+//                         </div>
+//                     </div>
+//                     {/* <div>
+//                         <ul className='keyword'>
+//                             {searchKeyword.map((keyword, index) => (
+//                                 <li key={index}
+//                                     className={location.pathname.includes(keyword.src) ? 'active' : ''}
+//                                     onClick={() => handleKeywordClick(keyword.title)}>
+//                                     {keyword.title}
+//                                 </li>
+//                             ))}
+//                         </ul>
+//                     </div> */}
+//                 </div>
+//             </div>
+
+//             <section id='searchPage' className={searchPageClass}>
+//                 {/* <h2>🤠 <em>{searchId}</em> 검색 결과입니다.</h2> */}
+//                 <div className="video__inner search">
+//                     <VideoSearch videos={videos} />
+//                 </div>
+//                 {nextPageToken && (
+//                     <div className='video__more'>
+//                         <button onClick={handleLoadMore}>더 보기</button>
+//                     </div>
+//                 )}
+//             </section>
+//         </div>
+//     );
+// };
+
+// export default Search;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import React, { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
@@ -568,15 +708,20 @@ const Search = () => {
     const searchPageClass = loading ? 'isLoading' : 'isLoaded';
 
     return (
-        <>
-            <div className='search__wrap'>
-                <div id='search'>
-                    <div className="search__inner">
+        <div className='search__contents'>
+            {/* <div className='search__wrap'>
+                <div id='search'> */}
+            <div className="search__inner">
+                <h3>코딩 유튜버</h3>
+                <span className="small">최신 코딩 관련 영상을 볼 수 있습니다.</span>
+                <span className="mail"></span>
+                <div className='info'>
+                    <div>
                         <form onSubmit={handleSubmit}>
                             <input
                                 type="search"
                                 id='searchInput'
-                                placeholder='검색어를 입력해주세요!'
+                                placeholder='검색'
                                 autoComplete='off'
                                 className='search__input'
                                 value={inputKeyword}
@@ -585,20 +730,24 @@ const Search = () => {
                             <button type="submit">검색</button>
                         </form>
                     </div>
+                    <div>
+                        <ul className='keyword'>
+                            {searchKeyword.map((keyword, index) => (
+                                <li key={index}
+                                    className={location.pathname.includes(keyword.src) ? 'active' : ''}
+                                    onClick={() => handleKeywordClick(keyword.title)}>
+                                    {keyword.title}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
-                <ul className='keyword'>
-                    {searchKeyword.map((keyword, index) => (
-                        <li key={index}
-                            className={location.pathname.includes(keyword.src) ? 'active' : ''}
-                            onClick={() => handleKeywordClick(keyword.title)}>
-                            {keyword.title}
-                        </li>
-                    ))}
-                </ul>
+                {/* </div>
+                </div> */}
             </div>
 
             <section id='searchPage' className={searchPageClass}>
-                <h2>🤠 <em>{searchId}</em> 검색 결과입니다.</h2>
+                {/* <h2>🤠 <em>{searchId}</em> 검색 결과입니다.</h2> */}
                 <div className="video__inner search">
                     <VideoSearch videos={videos} />
                 </div>
@@ -608,8 +757,11 @@ const Search = () => {
                     </div>
                 )}
             </section>
-        </>
+        </div>
     );
+
 };
 
 export default Search;
+
+
