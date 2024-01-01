@@ -1,136 +1,86 @@
-// import React from 'react';
-// import MainIntro from '../components/MainIntro';
+// 가장 최근에 사용
+// import React, { useState } from 'react';
 // import DraggableIcon from '../components/DraggableIcon';
-// import PortLayer from '../components/PortLayer';
-// import Wallpaper from '../components/Wallpaper';
-// import '../assets/css/style.css'; // CSS 파일 임포트
-// const Home = () => {
-//   return (
-//     <div>
-//       <MainIntro >
-//         <Wallpaper >
-//             <DraggableIcon />
-//             <PortLayer />
-//         </Wallpaper>
-//       </MainIntro>
-//     </div>
-//   );
-// };
+// import Layer from '../components/Layer';
+// import "../assets/css/section/_MovieLists.css";
+// import '../assets/css/section/_home.css'; // Home 컴포넌트에 특정한 스타일
+// import "../assets/css/section/_Video.css";
+// import youtubeIcon from '../assets/img/youtube.png'; 
+// import netflixIcon from '../assets/img/netflix.png'; 
 
-// export default Home;
-
-
-
-
-
-
-
-
-
-// import React, { useEffect, useRef } from 'react';
-// import Draggable from 'react-draggable';
-// import { initializeLayers, toggleLayerVisibility, closeAllLayers } from '../animations/animations';
-
-// import youtubeIcon from '../assets/img/youtube.png'; // 경로를 프로젝트에 맞게 수정하세요
-// import netflixIcon from '../assets/img/netflix.png'; // 경로를 프로젝트에 맞게 수정하세요
-// import oneIcon from '../assets/img/one.png'; // 경로를 프로젝트에 맞게 수정하세요
-// import logoIcon from '../assets/img/Logo@3x.png'; // 경로를 프로젝트에 맞게 수정하세요
-// import spotifyIcon from '../assets/img/spotify.png'; // 경로를 프로젝트에 맞게 수정하세요
-// import newsfeedIcon from '../assets/img/newsfeed.png'; // 경로를 프로젝트에 맞게 수정하세요
+// import oneIcon from '../assets/img/one.png'; 
+// import logoIcon from '../assets/img/Logo@3x.png'; 
+// import spotifyIcon from '../assets/img/spotify.png';
+// import newsfeedIcon from '../assets/img/newsfeed.png';
+// import Banner from '../components/Banner';
+// import MovieLists from '../components/MovieLists';
+// // import YouTubeLayer from '../components/YouTubeLayer';
+// import Search from "../components/Search";
+// import About from '../components/About'; 
 
 // const Home = () => {
-//   // 레이어 참조 생성
-//   const draggableRef = useRef(null);
-//   const youtubeLayerRef = useRef(null);
-//   const movieLayerRef = useRef(null);
-//   const aboutRef = useRef(null);
-//   const layer2Ref = useRef(null);
-//   const layer3Ref = useRef(null);
-//   const layer4Ref = useRef(null);
+//     // 각 레이어의 상태를 관리하는 상태 변수들
+//     const [activeLayer, setActiveLayer] = useState('');
 
-//     useEffect(() => {
-//       initializeLayers();
-//     }, []);
-  
-//     const toggleLayer = (layerRef) => {
-//       toggleLayerVisibility(layerRef);
+//     // 레이어를 표시하거나 숨기는 함수
+//     const toggleLayer = (layerName) => {
+//         setActiveLayer(prevLayer => (prevLayer === layerName ? '' : layerName));
 //     };
-//   return (
-//     <div id="mainIntro">
-//         <div className="wallpapers">
-//             <Draggable>
-//                 <div className="draggableIcon youtubeIcon">
-//                     <img src={youtubeIcon} alt="youtube" />
-//                     <span>나만의 유튜브</span>
-//                 </div>
-//             </Draggable>
-//             <Draggable>
-//                 <div className="draggableIcon movieIcon">
-//                     <img src={netflixIcon} alt="netflix" />
-//                     <span>영화 리스트</span>
-//                 </div>
-//             </Draggable>
-//       </div>
 
-//       <div className="footer__info">
-//         <div className="weather"></div>
-//         <div className="menu">
-//           <ul>
-//             <li className="menu1" onClick={() => toggleLayer(aboutRef)}>
-//               <a href="#">
-//                 <img src={oneIcon} alt="" />
-//               </a>
-//             </li>
-//             <li className="menu2" onClick={() => toggleLayer(layer2Ref)}>
-//               <a href="#">
-//                 <img src={logoIcon} alt="" />
-//               </a>
-//             </li>
-//             <li className="menu3" onClick={() => toggleLayer(layer3Ref)}>
-//               <a href="#">
-//                 <img src={spotifyIcon} alt="" />
-//               </a>
-//             </li>
-//             <li className="menu4" onClick={() => toggleLayer(layer4Ref)}>
-//               <a href="#">
-//                 <img src={newsfeedIcon} alt="" />
-//               </a>
-//             </li>
-//           </ul>
+//     return (
+//         <div id="mainIntro">
+//             <div className="wallpapers">
+//                     <DraggableIcon 
+//                         icon={youtubeIcon}
+//                         label="나만의 유튜브" 
+//                         className="youtubeIcon"
+//                         onClick={() => toggleLayer('youtubeLayer')} 
+//                     />
+//                     <DraggableIcon 
+//                         icon={netflixIcon} 
+//                         label="영화 리스트" 
+//                         className="movieIcon"
+//                         onClick={() => toggleLayer('movieLayer')} 
+//                     />
+//             </div>
+
+//             <div className="footer__info">
+//                 <div className="menu">
+//                     <ul>
+//                         <li onClick={() => toggleLayer('about')}>
+//                             <img src={oneIcon} alt="About Icon" />
+//                         </li>
+//                         <li onClick={() => toggleLayer('projects')}>
+//                             <img src={logoIcon} alt="Projects Icon" />
+//                         </li>
+//                         <li onClick={() => toggleLayer('skills')}>
+//                             <img src={spotifyIcon} alt="Skills Icon" />
+//                         </li>
+//                         <li onClick={() => toggleLayer('contact')}>
+//                             <img src={newsfeedIcon} alt="Contact Icon" />
+//                         </li>
+//                     </ul>
+//                 </div>
+//             </div>
+
+//             {/* <Layer isActive={activeLayer === 'youtubeLayer'} content="YouTube Layer Content" /> */}
+//             <Layer isActive={activeLayer === 'youtubeLayer'} content={<Search />} />
+
+//             <Layer isActive={activeLayer === 'movieLayer'} content={
+//              <>
+//              <Banner content="Movie Section Information" />
+//              <MovieLists title="Movie Title" id="movieId" fetchUrl="API_ENDPOINT" />
+//            </> 
+//             } />
+//             <Layer isActive={activeLayer === 'about'} content={<About />} />
+//             <Layer isActive={activeLayer === 'projects'} content="Projects Layer Content" />
+//             <Layer isActive={activeLayer === 'skills'} content="Skills Layer Content" />
+//             <Layer isActive={activeLayer === 'contact'} content="Contact Layer Content" />
 //         </div>
-//         <div className="date"></div>
-//       </div>
-
-//       {/* 여기에 추가 레이어 컴포넌트를 더 추가할 수 있습니다 */}
-//       <div ref={youtubeLayerRef} className="portLayer portLayer1 youtubeLayer">
-  
-//       </div>
-
-//       <div ref={movieLayerRef} className="portLayer portLayer1 MovieLayer">
-     
-//       </div>
-
-//       <div ref={aboutRef} className="layer layer1 about">
-//         {/* about layer 내용 */}
-//       </div>
-
-//       <div ref={layer2Ref} className="layer layer2">
-//         {/* layer2 내용 */}
-//       </div>
-
-//       <div ref={layer3Ref} className="layer layer3">
-//         {/* layer3 내용 */}
-//       </div>
-
-//       <div ref={layer4Ref} className="layer layer4">
-//         {/* layer4 내용 */}
-//       </div>
-//     </div>
-//   );
+//     );
 // };
 
 // export default Home;
-
 
 
 import React, { useState } from 'react';
@@ -141,7 +91,6 @@ import '../assets/css/section/_home.css'; // Home 컴포넌트에 특정한 스�
 import "../assets/css/section/_Video.css";
 import youtubeIcon from '../assets/img/youtube.png'; 
 import netflixIcon from '../assets/img/netflix.png'; 
-
 import oneIcon from '../assets/img/one.png'; 
 import logoIcon from '../assets/img/Logo@3x.png'; 
 import spotifyIcon from '../assets/img/spotify.png';
@@ -151,12 +100,11 @@ import MovieLists from '../components/MovieLists';
 // import YouTubeLayer from '../components/YouTubeLayer';
 import Search from "../components/Search";
 import About from '../components/About'; 
+import NewsList from '../components/news/NewsList'; // 뉴스 리스트 컴포넌트 임포트
 
 const Home = () => {
-    // 각 레이어의 상태를 관리하는 상태 변수들
     const [activeLayer, setActiveLayer] = useState('');
 
-    // 레이어를 표시하거나 숨기는 함수
     const toggleLayer = (layerName) => {
         setActiveLayer(prevLayer => (prevLayer === layerName ? '' : layerName));
     };
@@ -164,18 +112,18 @@ const Home = () => {
     return (
         <div id="mainIntro">
             <div className="wallpapers">
-                    <DraggableIcon 
-                        icon={youtubeIcon}
-                        label="나만의 유튜브" 
-                        className="youtubeIcon"
-                        onClick={() => toggleLayer('youtubeLayer')} 
-                    />
-                    <DraggableIcon 
-                        icon={netflixIcon} 
-                        label="영화 리스트" 
-                        className="movieIcon"
-                        onClick={() => toggleLayer('movieLayer')} 
-                    />
+                <DraggableIcon 
+                    icon={youtubeIcon}
+                    label="나만의 유튜브" 
+                    className="youtubeIcon"
+                    onClick={() => toggleLayer('youtubeLayer')} 
+                />
+                <DraggableIcon 
+                    icon={netflixIcon} 
+                    label="영화 리스트" 
+                    className="movieIcon"
+                    onClick={() => toggleLayer('movieLayer')} 
+                />
             </div>
 
             <div className="footer__info">
@@ -187,7 +135,7 @@ const Home = () => {
                         <li onClick={() => toggleLayer('projects')}>
                             <img src={logoIcon} alt="Projects Icon" />
                         </li>
-                        <li onClick={() => toggleLayer('skills')}>
+                        <li onClick={() => toggleLayer('newsLayer')}>
                             <img src={spotifyIcon} alt="Skills Icon" />
                         </li>
                         <li onClick={() => toggleLayer('contact')}>
@@ -197,15 +145,14 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* <Layer isActive={activeLayer === 'youtubeLayer'} content="YouTube Layer Content" /> */}
             <Layer isActive={activeLayer === 'youtubeLayer'} content={<Search />} />
-
             <Layer isActive={activeLayer === 'movieLayer'} content={
-             <>
-             <Banner content="Movie Section Information" />
-             <MovieLists title="Movie Title" id="movieId" fetchUrl="API_ENDPOINT" />
-           </> 
+                <>
+                    <Banner content="Movie Section Information" />
+                    <MovieLists title="Movie Title" id="movieId" fetchUrl="API_ENDPOINT" />
+                </>
             } />
+            <Layer isActive={activeLayer === 'newsLayer'} content={<NewsList />} />
             <Layer isActive={activeLayer === 'about'} content={<About />} />
             <Layer isActive={activeLayer === 'projects'} content="Projects Layer Content" />
             <Layer isActive={activeLayer === 'skills'} content="Skills Layer Content" />
@@ -215,6 +162,7 @@ const Home = () => {
 };
 
 export default Home;
+
 
 
 

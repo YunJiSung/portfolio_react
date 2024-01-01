@@ -74,62 +74,45 @@
 // export default App;
 
 
-
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Video from './pages/Video';
-
-
-const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/video/:videoId" element={<Video />} />
-      </Routes>
-    </Router>
-  );
-};
-
-export default App;
-
-
-
+// 가장 최근에 사용하던거
 // import React from 'react';
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import Home from './pages/Home';
+// import Video from './pages/Video';
+
 
 // const App = () => {
 //   return (
 //     <Router>
 //       <Routes>
 //         <Route path="/" element={<Home />} />
-//         {/* 필요한 경우 추가 경로를 여기에 추가 */}
+//         <Route path="/video/:videoId" element={<Video />} />
 //       </Routes>
 //     </Router>
 //   );
 // };
 
 // export default App;
-
-
-
-
-
-
 
 
 
 
 // import React from 'react';
-// import { BrowserRouter as Router } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import Home from './pages/Home';
+// import Video from './pages/Video';
+// import NewsPage from './pages/NewsPage';
 
 // const App = () => {
 //   return (
 //     <Router>
-//       <Home />
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/video/:videoId" element={<Video />} />
+//         <Route path="/news" element={<NewsPage />} />
+//         <Route path="/news/:category" element={<NewsPage />} />
+//         {/* 추가적인 라우트 경로를 이곳에 배치할 수 있습니다 */}
+//       </Routes>
 //     </Router>
 //   );
 // };
@@ -139,20 +122,23 @@ export default App;
 
 
 
-// import React from 'react'
-// import { Routes, Route } from 'react-router-dom'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Video from './pages/Video';
+import NewsPage from './pages/NewsPage';
 
-// import Home from './pages/Home';
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/video/:videoId" element={<Video />} />
+      <Route path="/news" element={<NewsPage />} />
+      <Route path="/news/:category" element={<NewsPage />} />
+      {/* 추가적인 라우트 경로를 이곳에 배치할 수 있습니다 */}
+    </Routes>
+  );
+};
 
-// const App = () => {
-//   return (
-//     <>
-//       <Routes>
-//         <Route path='/' element={<Home />}></Route>
-//       </Routes>
-//     </>
-//   )
-// }
-
-// export default App
+export default App;
 
