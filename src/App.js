@@ -135,7 +135,7 @@ const App = () => {
       <Route path="/video/:videoId" element={<Video />} />
       <Route path="/news" element={<NewsPage />} />
       <Route path="/news/:category" element={<NewsPage />} />
-      {/* 추가적인 라우트 경로를 이곳에 배치할 수 있습니다 */}
+
     </Routes>
   );
 };
