@@ -60,12 +60,13 @@ export default DraggableIcon;
 // const DraggableIcon = ({ icon, label, className, onClick }) => {
 //     const nodeRef = useRef(null);
 
-//     const handleStop = () => {
-//         // 드래그가 끝났을 때 실행할 로직
+//     const handleDragStop = () => {
+//         console.log('드래그가 끝났습니다.');
+//         // 드래그가 끝났을 때 실행될 추가적인 로직을 여기에 작성하세요.
 //     };
 
 //     return (
-//         <Draggable nodeRef={nodeRef} onStop={handleStop}>
+//         <Draggable nodeRef={nodeRef} onStop={handleDragStop}>
 //             <div ref={nodeRef} className={`icon ${className}`} onClick={onClick}>
 //                 <img src={icon} alt={label} />
 //                 <span>{label}</span>
