@@ -1,0 +1,32 @@
+.shcool__footer {
+    width: 100%;
+    height: 60px;
+    background-color: #22316767;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    padding: 0 10px;
+    font-family: "nanumSquareNeo";
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shcool__footer .work_btn a {
+    text-transform: lowercase;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    padding: 5px 20px;
+    border-radius: 50px;
+    display: inline-block;
+    margin: 0 0.3vw;
+    letter-spacing: -0.05vw;
+    transition: all 0.3s;
+}
+
+.shcool__footer .work_btn a:hover {
+    background-color: #514F4E;
+    color: var(--white);
+    border: 1px solid #514F4E;
+}

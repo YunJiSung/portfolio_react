@@ -86,23 +86,24 @@ import Layer from '../components/Layer';
 import "../assets/css/section/_MovieLists.css";
 import '../assets/css/section/_home.css'; // Home 컴포넌트에 특정한 스타일
 import "../assets/css/section/_Video.css";
-import youtubeIcon from '../assets/img/youtube.png'; 
-import netflixIcon from '../assets/img/netflix.png'; 
-import schoolMainImage from '../assets/img/shcoolmain.png';
-import viteIcon from '../assets/img/vite.png'; 
-import vueIcon from '../assets/img/vue.png'; 
-import oneIcon from '../assets/img/one.png'; 
-import logoIcon from '../assets/img/Logo@3x.png'; 
+import youtubeIcon from '../assets/img/youtube.png';
+import netflixIcon from '../assets/img/netflix.png';
+import vueIcon from '../assets/img/vue.png';
+
+import viteIcon from '../assets/img/vite.png';
+import reactIcon from '../assets/img/react.png';
+import oneIcon from '../assets/img/one.png';
+import logoIcon from '../assets/img/Logo@3x.png';
 import spotifyIcon from '../assets/img/spotify.png';
 import newsfeedIcon from '../assets/img/newsfeed.png';
 import Banner from '../components/Banner';
 import MovieLists from '../components/MovieLists';
 // import YouTubeLayer from '../components/YouTubeLayer';
 import Search from "../components/Search";
-import About from '../components/About'; 
-import Shcool from '../components/Shcool'; 
-import Travel from '../components/Travel'; 
-import NewsList from '../components/news/NewsList'; // 뉴스 리스트 컴포넌트 임포트
+import About from '../components/About';
+import Shcool from '../components/Shcool';
+import Travel from '../components/Travel';
+
 
 
 const Home = () => {
@@ -115,30 +116,37 @@ const Home = () => {
     return (
         <div id="mainIntro">
             <div className="wallpapers">
-                <DraggableIcon 
+                <DraggableIcon
                     icon={youtubeIcon}
-                    label="나만의 유튜브" 
+                    label="나만의 유튜브"
                     className="youtubeIcon"
-                    onClick={() => toggleLayer('youtubeLayer')} 
+                    onClick={() => toggleLayer('youtubeLayer')}
                 />
-                <DraggableIcon 
-                    icon={netflixIcon} 
-                    label="영화 리스트" 
+                <DraggableIcon
+                    icon={netflixIcon}
+                    label="영화 리스트"
                     className="movieIcon"
-                    onClick={() => toggleLayer('movieLayer')} 
+                    onClick={() => toggleLayer('movieLayer')}
                 />
-                <DraggableIcon 
-                    icon={viteIcon} 
-                    label="vite" 
+                <DraggableIcon
+                    icon={viteIcon}
+                    label="vite"
                     className="viteIcon"
-                    onClick={() => toggleLayer('viteLayer')} 
+                    onClick={() => toggleLayer('viteLayer')}
                 />
-                <DraggableIcon 
-                    icon={vueIcon} 
-                    label="vue" 
+                <DraggableIcon
+                    icon={reactIcon}
+                    label="react"
+                    className="reactIcon"
+                    onClick={() => toggleLayer('reactLayer')}
+                />
+                <DraggableIcon
+                    icon={vueIcon}
+                    label="react"
                     className="vueIcon"
-                    onClick={() => toggleLayer('vueLayer')} 
+                    onClick={() => toggleLayer('vueLayer')}
                 />
+
             </div>
 
             <div className="footer__info">
@@ -168,8 +176,9 @@ const Home = () => {
                 </>
             } />
             <Layer isActive={activeLayer === 'viteLayer'} content={<Shcool />} />
-            <Layer isActive={activeLayer === 'vueLayer'} content={<Travel />} />
-            <Layer isActive={activeLayer === 'newsLayer'} content={<NewsList />} />
+            <Layer isActive={activeLayer === 'reactLayer'} content={<Travel />} />
+            <Layer isActive={activeLayer === 'vueLayer'} content="Projects Layer Content" />
+            <Layer isActive={activeLayer === 'newsLayer'} content={<About />} />
             <Layer isActive={activeLayer === 'about'} content={<About />} />
             <Layer isActive={activeLayer === 'projects'} content="Projects Layer Content" />
             <Layer isActive={activeLayer === 'skills'} content="Skills Layer Content" />
