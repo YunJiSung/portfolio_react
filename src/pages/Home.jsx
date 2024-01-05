@@ -103,6 +103,7 @@ import Search from "../components/Search";
 import About from '../components/About';
 import Shcool from '../components/Shcool';
 import Travel from '../components/Travel';
+import NewsList from '../components/news/NewsList';
 
 
 
@@ -178,7 +179,7 @@ const Home = () => {
             <Layer isActive={activeLayer === 'viteLayer'} content={<Shcool />} />
             <Layer isActive={activeLayer === 'reactLayer'} content={<Travel />} />
             <Layer isActive={activeLayer === 'vueLayer'} content="Projects Layer Content" />
-            <Layer isActive={activeLayer === 'newsLayer'} content={<About />} />
+            <Layer isActive={activeLayer === 'newsLayer'} content={<NewsList />} />
             <Layer isActive={activeLayer === 'about'} content={<About />} />
             <Layer isActive={activeLayer === 'projects'} content="Projects Layer Content" />
             <Layer isActive={activeLayer === 'skills'} content="Skills Layer Content" />
