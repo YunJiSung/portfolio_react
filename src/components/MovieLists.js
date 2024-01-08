@@ -774,10 +774,10 @@ function MovieLists() {
                 {/* 영화 카테고리 태그 */}
                 <div className="movie__tag">
                     <ul>
-                        <li><a href="#" onClick={() => fetchMovies('latest')}>최신영화</a></li>
-                        <li><a href="#" onClick={() => fetchMovies('popular')}>인기영화</a></li>
-                        <li><a href="#" onClick={() => fetchMovies('upcoming')}>개봉예정</a></li>
-                        <li><a href="#" onClick={() => fetchMovies('toprated')}>최고평점</a></li>
+                        <li><a href="#/" onClick={() => fetchMovies('latest')}>최신영화</a></li>
+                        <li><a href="#/" onClick={() => fetchMovies('popular')}>인기영화</a></li>
+                        <li><a href="#/" onClick={() => fetchMovies('upcoming')}>개봉예정</a></li>
+                        <li><a href="#/" onClick={() => fetchMovies('toprated')}>최고평점</a></li>
                     </ul>
                 </div>
 
