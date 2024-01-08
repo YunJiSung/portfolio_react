@@ -686,10 +686,18 @@ const Search = () => {
                 setLoading(false);
             });
     };
+    const debouncedFetchVideos = useCallback(
+        _.debounce((query) => {
+            fetchVideos(query);
+        }, 500),
+        [fetchVideos] // 의존성 배열에 fetchVideos 추가
+    );
 
-    const debouncedFetchVideos = useCallback(_.debounce((query) => {
-        fetchVideos(query);
-    }, 500), []); // 500ms 디바운스 시간
+
+
+    // const debouncedFetchVideos = useCallback(_.debounce((query) => {
+    //     fetchVideos(query);
+    // }, 500), []); // 500ms 디바운스 시간
 
     const handleKeywordClick = (keyword) => {
         setCurrentSearchKeyword(keyword);
