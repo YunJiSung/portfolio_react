@@ -647,8 +647,9 @@
 
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
+import _ from 'lodash';
 import "../assets/css/section/_header.css";
 import "../assets/css/section/_Video.css";
 import { searchKeyword } from '../data/header.js';
@@ -661,10 +662,12 @@ const Search = () => {
     const [nextPageToken, setNextPageToken] = useState(null);
     const [loading, setLoading] = useState(true);
     const [inputKeyword, setInputKeyword] = useState('');
+    const [currentSearchKeyword, setCurrentSearchKeyword] = useState('');
     const location = useLocation();
 
     useEffect(() => {
         if (searchId) {
+            setCurrentSearchKeyword(searchId);
             fetchVideos(searchId);
         }
     }, [searchId]);
@@ -675,7 +678,7 @@ const Search = () => {
         fetchFromAPI(`search?part=snippet&type=video&q=${query}&pageToken=${pageToken}`)
             .then((data) => {
                 setNextPageToken(data.nextPageToken);
-                setVideos(data.items);
+                setVideos(prevVideos => pageToken ? [...prevVideos, ...data.items] : data.items);
                 setLoading(false);
             })
             .catch((error) => {
@@ -684,24 +687,31 @@ const Search = () => {
             });
     };
 
+    const debouncedFetchVideos = useCallback(_.debounce((query) => {
+        fetchVideos(query);
+    }, 500), []); // 500ms 디바운스 시간
+
     const handleKeywordClick = (keyword) => {
+        setCurrentSearchKeyword(keyword);
         fetchVideos(keyword);
     };
 
     const handleSearchChange = (event) => {
         setInputKeyword(event.target.value);
+        debouncedFetchVideos(event.target.value);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         if (inputKeyword) {
+            setCurrentSearchKeyword(inputKeyword);
             fetchVideos(inputKeyword);
         }
     };
 
     const handleLoadMore = () => {
         if (nextPageToken) {
-            fetchVideos(searchId, nextPageToken);
+            fetchVideos(currentSearchKeyword, nextPageToken);
         }
     };
 
@@ -709,12 +719,9 @@ const Search = () => {
 
     return (
         <div className='search__contents'>
-            {/* <div className='search__wrap'>
-                <div id='search'> */}
             <div className="search__inner">
                 <h3>코딩 유튜버</h3>
                 <span className="small">최신 코딩 관련 영상을 볼 수 있습니다.</span>
-                <span className="mail"></span>
                 <div className='info'>
                     <div>
                         <form onSubmit={handleSubmit}>
@@ -727,7 +734,7 @@ const Search = () => {
                                 value={inputKeyword}
                                 onChange={handleSearchChange}
                             />
-                            <button type="submit">검색</button>
+                            {/* <button type="submit">검색</button> */}
                         </form>
                     </div>
                     <div>
@@ -742,12 +749,9 @@ const Search = () => {
                         </ul>
                     </div>
                 </div>
-                {/* </div>
-                </div> */}
             </div>
 
             <section id='searchPage' className={searchPageClass}>
-                {/* <h2>🤠 <em>{searchId}</em> 검색 결과입니다.</h2> */}
                 <div className="video__inner search">
                     <VideoSearch videos={videos} />
                 </div>
@@ -759,9 +763,6 @@ const Search = () => {
             </section>
         </div>
     );
-
 };
 
 export default Search;
-
-
