@@ -647,9 +647,293 @@
 
 
 
+// import React, { useState, useEffect, useCallback } from 'react';
+// import { useLocation, useParams } from 'react-router-dom';
+// import _ from 'lodash';
+// import "../assets/css/section/_header.css";
+// import "../assets/css/section/_Video.css";
+// import { searchKeyword } from '../data/header.js';
+// import VideoSearch from './video/VideoSearch.jsx';
+// import { fetchFromAPI } from '../utils/api.js';
+
+// const Search = () => {
+//     const { searchId } = useParams();
+//     const [videos, setVideos] = useState([]);
+//     const [nextPageToken, setNextPageToken] = useState(null);
+//     const [loading, setLoading] = useState(true);
+//     const [inputKeyword, setInputKeyword] = useState('');
+//     const [currentSearchKeyword, setCurrentSearchKeyword] = useState('');
+//     const location = useLocation();
+
+//     useEffect(() => {
+//         if (searchId) {
+//             setCurrentSearchKeyword(searchId);
+//             fetchVideos(searchId);
+//         }
+//     }, [searchId]);
+
+//     // const fetchVideos = (query, pageToken = '') => {
+//     //     setLoading(true);
+//     //     setVideos([]);
+//     //     fetchFromAPI(`search?part=snippet&type=video&q=${query}&pageToken=${pageToken}`)
+//     //         .then((data) => {
+//     //             setNextPageToken(data.nextPageToken);
+//     //             setVideos(prevVideos => pageToken ? [...prevVideos, ...data.items] : data.items);
+//     //             setLoading(false);
+//     //         })
+//     //         .catch((error) => {
+//     //             console.error('Error fetching data', error);
+//     //             setLoading(false);
+//     //         });
+//     // };
+//     const fetchVideos = useCallback((query, pageToken = '') => {
+//         setLoading(true);
+//         setVideos([]);
+//         fetchFromAPI(`search?part=snippet&type=video&q=${query}&pageToken=${pageToken}`)
+//             .then((data) => {
+//                 setNextPageToken(data.nextPageToken);
+//                 setVideos(prevVideos => pageToken ? [...prevVideos, ...data.items] : data.items);
+//                 setLoading(false);
+//             })
+//             .catch((error) => {
+//                 console.error('Error fetching data', error);
+//                 setLoading(false);
+//             });
+//     }, [setLoading, setVideos, setNextPageToken]); // 의존성 배열에 필요한 상태 업데이트 함수들을 포함
+
+//     const debouncedFetchVideos = useCallback(
+//         _.debounce((query) => {
+//             fetchVideos(query);
+//         }, 500),
+//         [fetchVideos] // 의존성 배열에 fetchVideos 추가
+//     );
+
+
+
+//     // const debouncedFetchVideos = useCallback(_.debounce((query) => {
+//     //     fetchVideos(query);
+//     // }, 500), []); // 500ms 디바운스 시간
+
+//     const handleKeywordClick = (keyword) => {
+//         setCurrentSearchKeyword(keyword);
+//         fetchVideos(keyword);
+//     };
+
+//     const handleSearchChange = (event) => {
+//         setInputKeyword(event.target.value);
+//         debouncedFetchVideos(event.target.value);
+//     };
+
+//     const handleSubmit = (event) => {
+//         event.preventDefault();
+//         if (inputKeyword) {
+//             setCurrentSearchKeyword(inputKeyword);
+//             fetchVideos(inputKeyword);
+//         }
+//     };
+
+//     const handleLoadMore = () => {
+//         if (nextPageToken) {
+//             fetchVideos(currentSearchKeyword, nextPageToken);
+//         }
+//     };
+
+//     const searchPageClass = loading ? 'isLoading' : 'isLoaded';
+
+//     return (
+//         <div className='search__contents'>
+//             <div className="search__inner">
+//                 <h3>코딩 유튜버</h3>
+//                 <span className="small">최신 코딩 관련 영상을 볼 수 있습니다.</span>
+//                 <div className='info'>
+//                     <div>
+//                         <form onSubmit={handleSubmit}>
+//                             <input
+//                                 type="search"
+//                                 id='searchInput'
+//                                 placeholder='검색'
+//                                 autoComplete='off'
+//                                 className='search__input'
+//                                 value={inputKeyword}
+//                                 onChange={handleSearchChange}
+//                             />
+//                         </form>
+//                     </div>
+//                     <div>
+//                         <ul className='keyword'>
+//                             {searchKeyword.map((keyword, index) => (
+//                                 <li key={index}
+//                                     className={location.pathname.includes(keyword.src) ? 'active' : ''}
+//                                     onClick={() => handleKeywordClick(keyword.title)}>
+//                                     {keyword.title}
+//                                 </li>
+//                             ))}
+//                         </ul>
+//                     </div>
+//                 </div>
+//             </div>
+
+//             <section id='searchPage' className={searchPageClass}>
+//                 <div className="video__inner search">
+//                     <VideoSearch videos={videos} />
+//                 </div>
+//                 {nextPageToken && (
+//                     <div className='video__more'>
+//                         <button onClick={handleLoadMore}>더 보기</button>
+//                     </div>
+//                 )}
+//             </section>
+//         </div>
+//     );
+// };
+
+// export default Search;
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect, useCallback } from 'react';
+// import { useLocation, useParams } from 'react-router-dom';
+// import "../assets/css/section/_header.css";
+// import "../assets/css/section/_Video.css";
+// import { searchKeyword } from '../data/header.js';
+// import VideoSearch from './video/VideoSearch.jsx';
+// import { fetchFromAPI } from '../utils/api.js';
+
+// // 커스텀 debounce 훅
+// const useDebouncedEffect = (effect, deps, delay) => {
+//     useEffect(() => {
+//         const handler = setTimeout(() => {
+//             effect();
+//         }, delay);
+
+//         return () => clearTimeout(handler);
+//         // eslint-disable-next-line react-hooks/exhaustive-deps
+//     }, [...deps || [], delay]);
+// };
+
+// const Search = () => {
+//     const { searchId } = useParams();
+//     const [videos, setVideos] = useState([]);
+//     const [nextPageToken, setNextPageToken] = useState(null);
+//     const [loading, setLoading] = useState(true);
+//     const [inputKeyword, setInputKeyword] = useState('');
+//     const [currentSearchKeyword, setCurrentSearchKeyword] = useState('');
+//     const location = useLocation();
+
+//     useEffect(() => {
+//         if (searchId) {
+//             setCurrentSearchKeyword(searchId);
+//             fetchVideos(searchId);
+//         }
+//     }, [searchId]);
+
+//     const fetchVideos = useCallback((query, pageToken = '') => {
+//         setLoading(true);
+//         setVideos([]);
+//         fetchFromAPI(`search?part=snippet&type=video&q=${query}&pageToken=${pageToken}`)
+//             .then((data) => {
+//                 setNextPageToken(data.nextPageToken);
+//                 setVideos(prevVideos => pageToken ? [...prevVideos, ...data.items] : data.items);
+//                 setLoading(false);
+//             })
+//             .catch((error) => {
+//                 console.error('Error fetching data', error);
+//                 setLoading(false);
+//             });
+//     }, [setLoading, setVideos, setNextPageToken]);
+
+//     const debouncedFetchVideos = useCallback(() => {
+//         fetchVideos(inputKeyword);
+//     }, [inputKeyword, fetchVideos]);
+
+//     useDebouncedEffect(() => {
+//         if (inputKeyword) {
+//             debouncedFetchVideos();
+//         }
+//     }, [debouncedFetchVideos], 500);
+
+//     const handleKeywordClick = (keyword) => {
+//         setCurrentSearchKeyword(keyword);
+//         fetchVideos(keyword);
+//     };
+
+//     const handleSearchChange = (event) => {
+//         setInputKeyword(event.target.value);
+//     };
+
+//     const handleSubmit = (event) => {
+//         event.preventDefault();
+//         if (inputKeyword) {
+//             setCurrentSearchKeyword(inputKeyword);
+//             fetchVideos(inputKeyword);
+//         }
+//     };
+
+//     const handleLoadMore = () => {
+//         if (nextPageToken) {
+//             fetchVideos(currentSearchKeyword, nextPageToken);
+//         }
+//     };
+
+//     const searchPageClass = loading ? 'isLoading' : 'isLoaded';
+
+//     return (
+//         <div className='search__contents'>
+//             <div className="search__inner">
+//                 <h3>코딩 유튜버</h3>
+//                 <span className="small">최신 코딩 관련 영상을 볼 수 있습니다.</span>
+//                 <div className='info'>
+//                     <div>
+//                         <form onSubmit={handleSubmit}>
+//                             <input
+//                                 type="search"
+//                                 id='searchInput'
+//                                 placeholder='검색'
+//                                 autoComplete='off'
+//                                 className='search__input'
+//                                 value={inputKeyword}
+//                                 onChange={handleSearchChange}
+//                             />
+//                         </form>
+//                     </div>
+//                     <div>
+//                         <ul className='keyword'>
+//                             {searchKeyword.map((keyword, index) => (
+//                                 <li key={index}
+//                                     className={location.pathname.includes(keyword.src) ? 'active' : ''}
+//                                     onClick={() => handleKeywordClick(keyword.title)}>
+//                                     {keyword.title}
+//                                 </li>
+//                             ))}
+//                         </ul>
+//                     </div>
+//                 </div>
+//             </div>
+
+//             <section id='searchPage' className={searchPageClass}>
+//                 <div className="video__inner search">
+//                     <VideoSearch videos={videos} />
+//                 </div>
+//                 {nextPageToken && (
+//                     <div className='video__more'>
+//                         <button onClick={handleLoadMore}>더 보기</button>
+//                     </div>
+//                 )}
+//             </section>
+//         </div>
+//     );
+// };
+
+// export default Search;
+
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import _ from 'lodash';
 import "../assets/css/section/_header.css";
 import "../assets/css/section/_Video.css";
 import { searchKeyword } from '../data/header.js';
@@ -665,14 +949,7 @@ const Search = () => {
     const [currentSearchKeyword, setCurrentSearchKeyword] = useState('');
     const location = useLocation();
 
-    useEffect(() => {
-        if (searchId) {
-            setCurrentSearchKeyword(searchId);
-            fetchVideos(searchId);
-        }
-    }, [searchId]);
-
-    const fetchVideos = (query, pageToken = '') => {
+    const fetchVideos = useCallback((query, pageToken = '') => {
         setLoading(true);
         setVideos([]);
         fetchFromAPI(`search?part=snippet&type=video&q=${query}&pageToken=${pageToken}`)
@@ -685,19 +962,14 @@ const Search = () => {
                 console.error('Error fetching data', error);
                 setLoading(false);
             });
-    };
-    const debouncedFetchVideos = useCallback(
-        _.debounce((query) => {
-            fetchVideos(query);
-        }, 500),
-        [fetchVideos] // 의존성 배열에 fetchVideos 추가
-    );
+    }, [setLoading, setVideos, setNextPageToken]);
 
-
-
-    // const debouncedFetchVideos = useCallback(_.debounce((query) => {
-    //     fetchVideos(query);
-    // }, 500), []); // 500ms 디바운스 시간
+    useEffect(() => {
+        if (searchId) {
+            setCurrentSearchKeyword(searchId);
+            fetchVideos(searchId);
+        }
+    }, [searchId, fetchVideos]);
 
     const handleKeywordClick = (keyword) => {
         setCurrentSearchKeyword(keyword);
@@ -706,7 +978,9 @@ const Search = () => {
 
     const handleSearchChange = (event) => {
         setInputKeyword(event.target.value);
-        debouncedFetchVideos(event.target.value);
+        if (event.target.value === '') {
+            fetchVideos('');
+        }
     };
 
     const handleSubmit = (event) => {
