@@ -686,6 +686,39 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 가장 최근 사용
 import React, { useState } from 'react';
 
 function MovieLists() {
@@ -786,7 +819,8 @@ function MovieLists() {
                     <h2 className="blind">영화</h2>
                     <div className="movie play__icon">
                         {movies.map((movie) => (
-                            <a href={'/detail/' + movie.id} key={movie.id}>
+                            // <a href={'/detail/' + movie.id} key={movie.id}>
+                            <a href={`https://www.themoviedb.org/movie/${movie.id}`}>
                                 <img src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} />
                             </a>
                         ))}
@@ -798,3 +832,4 @@ function MovieLists() {
 }
 
 export default MovieLists;
+

@@ -1,5 +1,5 @@
 import React from 'react';
-import "../assets/css/section/_home.css";
+// import "../assets/css/section/_home.css";
 const About = () => {
     return (
         <div className="layer layer1 about">

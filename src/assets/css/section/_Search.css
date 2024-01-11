@@ -112,11 +112,16 @@
     display: inline-block;
     color: #78828A;
     padding: 5px 10px;
+    cursor: pointer;
 }
 
-.search__inner .info li:first-child {
+.search__inner .info li:hover {
     color: #bcbdbe;
 }
+
+/* .search__inner .info li:first-child {
+    color: #bcbdbe;
+} */
 
 
 .search__inner .info input {
