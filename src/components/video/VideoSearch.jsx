@@ -130,10 +130,11 @@ const VideoSearch = ({ videos }) => {
                 <ReactPlayer
                     url={`https://www.youtube.com/watch?v=${selectedVideoId}`}
                     playing={modalIsOpen}
+                    controls
                     width='100%'
                     height='100%'
                 />
-                <button onClick={closeModal}>Close</button>
+                <button onClick={closeModal}>닫기</button>
             </Modal>
         </>
     )

@@ -174,9 +174,11 @@
     position: relative;
 }
 
-
-
-
+.video-modal button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
 
 
@@ -197,21 +199,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* 화면 중앙에 위치 */
     width: 80%;
-    /* 너비 */
-    height: 60%;
-    /* 높이 */
+    height: 80%;
     background-color: #fff;
-    /* 배경색 */
     padding: 20px;
-    /* 패딩 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* 그림자 효과 */
     z-index: 1001;
     /* overlay 위에 오도록 */
     overflow: hidden;
-    /* 내용이 넘칠 경우 숨김 */
+
 }
 
 /* ReactPlayer 스타일링 */

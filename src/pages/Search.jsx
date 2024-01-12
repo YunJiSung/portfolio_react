@@ -62,80 +62,80 @@
 // export default Search
 // 위에 코드가 가장 최근에 되던 코드
 
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import "../../assets/css/section/_header.css";
-import { searchKeyword } from '../../data/header.js'; // 키워드 배열
-import VideoSearch from '../components/video/VideoSearch';
-import { fetchFromAPI } from '../utils/api';
+// import React, { useState, useEffect } from 'react';
+// import { Link, useLocation } from 'react-router-dom';
+// import "../../assets/css/section/_header.css";
+// import { searchKeyword } from '../../data/header.js'; // 키워드 배열
+// import VideoSearch from '../components/video/VideoSearch';
+// import { fetchFromAPI } from '../utils/api';
 
-const Search = () => {
-    const [inputKeyword, setInputKeyword] = useState(''); // 검색 입력을 위한 상태
-    const [videos, setVideos] = useState([]); // 비디오 목록을 위한 상태
-    const location = useLocation();
+// const Search = () => {
+//     const [inputKeyword, setInputKeyword] = useState(''); // 검색 입력을 위한 상태
+//     const [videos, setVideos] = useState([]); // 비디오 목록을 위한 상태
+//     const location = useLocation();
 
-    useEffect(() => {
-        if (inputKeyword) {
-            fetchVidoes(inputKeyword);
-        }
-    }, [inputKeyword]);
+//     useEffect(() => {
+//         if (inputKeyword) {
+//             fetchVidoes(inputKeyword);
+//         }
+//     }, [inputKeyword]);
 
-    const fetchVidoes = (query) => {
-        fetchFromAPI(`search?part=snippet&type=video&q=${query}`)
-            .then((data) => {
-                setVideos(data.items);
-            })
-            .catch((error) => {
-                console.log('Error fetching data', error);
-            })
-    };
+//     const fetchVidoes = (query) => {
+//         fetchFromAPI(`search?part=snippet&type=video&q=${query}`)
+//             .then((data) => {
+//                 setVideos(data.items);
+//             })
+//             .catch((error) => {
+//                 console.log('Error fetching data', error);
+//             })
+//     };
 
-    const handleSearch = () => {
-        if (inputKeyword) {
-            setInputKeyword(inputKeyword); // 검색 후 입력 필드 유지
-        }
-    };
+//     const handleSearch = () => {
+//         if (inputKeyword) {
+//             setInputKeyword(inputKeyword); // 검색 후 입력 필드 유지
+//         }
+//     };
 
-    const handleKeywordClick = (keyword) => {
-        setInputKeyword(keyword);
-    };
+//     const handleKeywordClick = (keyword) => {
+//         setInputKeyword(keyword);
+//     };
 
-    return (
-        <div className='search__wrap'>
-            <div id='search'>
-                <div className="search__inner">
-                    <label htmlFor="searchInput"></label>
-                    <input
-                        type="search"
-                        id='searchInput'
-                        placeholder='검색어를 입력해주세요!'
-                        autoComplete='off'
-                        className='search__input'
-                        value={inputKeyword}
-                        onChange={e => setInputKeyword(e.target.value)}
-                        onKeyDown={e => {
-                            if (e.key === "Enter") {
-                                handleSearch();
-                            }
-                        }}
-                    />
-                </div>
-            </div>
-            <div>
-                <ul className='keyword'>
-                    {searchKeyword.map((keyword, key) => (
-                        <li key={key} className={location.pathname === keyword.src ? 'active' : ''}
-                            onClick={() => handleKeywordClick(keyword.title)}>
-                            <a href="#">{keyword.title}</a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <div className="video__inner search">
-                <VideoSearch videos={videos} />
-            </div>
-        </div>
-    );
-}
+//     return (
+//         <div className='search__wrap'>
+//             <div id='search'>
+//                 <div className="search__inner">
+//                     <label htmlFor="searchInput"></label>
+//                     <input
+//                         type="search"
+//                         id='searchInput'
+//                         placeholder='검색어를 입력해주세요!'
+//                         autoComplete='off'
+//                         className='search__input'
+//                         value={inputKeyword}
+//                         onChange={e => setInputKeyword(e.target.value)}
+//                         onKeyDown={e => {
+//                             if (e.key === "Enter") {
+//                                 handleSearch();
+//                             }
+//                         }}
+//                     />
+//                 </div>
+//             </div>
+//             <div>
+//                 <ul className='keyword'>
+//                     {searchKeyword.map((keyword, key) => (
+//                         <li key={key} className={location.pathname === keyword.src ? 'active' : ''}
+//                             onClick={() => handleKeywordClick(keyword.title)}>
+//                             <a href="#">{keyword.title}</a>
+//                         </li>
+//                     ))}
+//                 </ul>
+//             </div>
+//             <div className="video__inner search">
+//                 <VideoSearch videos={videos} />
+//             </div>
+//         </div>
+//     );
+// }
 
-export default Search;
+// export default Search;
