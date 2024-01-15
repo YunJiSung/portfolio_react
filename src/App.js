@@ -125,15 +125,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-// import Video from './pages/Video';
+
 
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      {/* <Route path="/video/:videoId" element={<Video />} /> */}
-
     </Routes>
   );
 };
